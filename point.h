@@ -10,14 +10,14 @@
 
 class Point {
 public:
-    Point();
+    Point() {};
     Point(int num_dimensions, bool init_zeros=true);
-
     Point(double x, double y, double z);
     Point(const std::vector<double> &data);
     ~Point() {};
 
     static double distance(const Point &p1, const Point &p2);
+    void add(const Point &point);
 
     void update(int k) { cluster_ = k;}
 

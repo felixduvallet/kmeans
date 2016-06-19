@@ -31,9 +31,10 @@ Point::Point(const std::vector<double> &data)
     for(const double &d : data) {
         data_.push_back(d);
     }
-    // TODO: use insert instead of element-wise copy.
+    // TODO: use copy/insert instead of element-wise copy.
 }
 
+// static
 double Point::distance(const Point &p1, const Point &p2) {
     assert(p1.dimensions_ == p2.dimensions_);
     double dist = 0.0;
@@ -43,6 +44,13 @@ double Point::distance(const Point &p1, const Point &p2) {
         dist += tmp * tmp;
     }
     return sqrt(dist);
+}
+
+void Point::add(const Point &point) {
+    assert(dimensions_ == point.dimensions_);
+    for (int idx = 0; idx < dimensions_; ++idx) {
+        data_[idx] += point.data_[idx];
+    }
 }
 
 std::ostream &operator<<(std::ostream &target, const Point &point) {
