@@ -19,10 +19,23 @@ namespace {
         }
     };
 
-    TEST_F(TestPoint, TestConstructor) {
+    TEST_F(TestPoint, TestConstructorArguments) {
         Point p(4, 5, 6);
         EXPECT_EQ(3, p.dimensions_);
         EXPECT_EQ(-1, p.cluster_);
+    }
+
+    TEST_F(TestPoint, TestConstructorVector) {
+        std::vector<double> vec {0, 1, 2, 3, 4, 5};
+        Point point(vec);
+
+        const int ref_size = (int) vec.size();
+
+        EXPECT_EQ(ref_size, point.dimensions_);
+        ASSERT_EQ(ref_size, point.data_.size());
+        for(int idx = 0; idx < 6; ++idx)
+            EXPECT_EQ((double)idx, point.data_[idx]);
+
     }
 
     TEST_F(TestPoint, TestUpdateCluster) {
@@ -33,10 +46,10 @@ namespace {
 
     TEST_F(TestPoint, TestUpdateClusterNoChange) {
         bool ret = p1.update(2);
-        EXPECT_EQ(true, ret);
+        EXPECT_TRUE(ret);
         ret = p1.update(2);
         EXPECT_EQ(2, p1.cluster_);
-        EXPECT_EQ(false, ret);
+        EXPECT_FALSE(ret);
     }
 
     TEST_F(TestPoint, TestAdd) {

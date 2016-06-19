@@ -22,16 +22,11 @@ Point::Point(double x, double y, double z)
     data_.push_back(z);
 }
 
-Point::Point(const std::vector<double> &data)
+Point::Point(const std::vector<double> &vector)
         : cluster_(-1) {
-
-    dimensions_ = (int) data.size();
+    dimensions_ = (int) vector.size();
     data_.clear();
-
-    for(const double &d : data) {
-        data_.push_back(d);
-    }
-    // TODO: use copy/insert instead of element-wise copy.
+    data_.insert(data_.begin(), vector.begin(), vector.end());
 }
 
 bool Point::update(int k) {
@@ -68,3 +63,6 @@ std::ostream &operator<<(std::ostream &target, const Point &point) {
     target << "]";
     return target;
 }
+
+
+

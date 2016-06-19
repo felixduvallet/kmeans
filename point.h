@@ -13,7 +13,7 @@ public:
     Point() {};
     Point(int num_dimensions, bool init_zeros=true);
     Point(double x, double y, double z);
-    Point(const std::vector<double> &data);
+    Point(const std::vector<double> &vector);
     ~Point() {};
 
     static double distance(const Point &p1, const Point &p2);
