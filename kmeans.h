@@ -21,7 +21,7 @@ public:
     bool assign();
 
     // Compute each mean to the mean of the points in that cluster.
-    bool update();
+    bool update_means();
 
     std::vector<Point> means_;
     int k_;
@@ -30,7 +30,7 @@ public:
 
     int findNearestCluster(const Point &point);
 
-    void computeClusterMean(std::multimap<int, const Point *> multimap, int k, Point *mean);
+    void computeClusterMean(const std::multimap<int, const Point *> &multimap, int k, Point *mean);
 };
 
 

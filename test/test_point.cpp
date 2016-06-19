@@ -26,8 +26,17 @@ namespace {
     }
 
     TEST_F(TestPoint, TestUpdateCluster) {
-        p1.update(2);
+        bool ret = p1.update(2);
         EXPECT_EQ(2, p1.cluster_);
+        EXPECT_EQ(true, ret);
+    }
+
+    TEST_F(TestPoint, TestUpdateClusterNoChange) {
+        bool ret = p1.update(2);
+        EXPECT_EQ(true, ret);
+        ret = p1.update(2);
+        EXPECT_EQ(2, p1.cluster_);
+        EXPECT_EQ(false, ret);
     }
 
     TEST_F(TestPoint, TestAdd) {

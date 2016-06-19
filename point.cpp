@@ -34,6 +34,12 @@ Point::Point(const std::vector<double> &data)
     // TODO: use copy/insert instead of element-wise copy.
 }
 
+bool Point::update(int k) {
+    const bool ret = cluster_ != k;
+    cluster_ = k;
+    return ret;
+}
+
 // static
 double Point::distance(const Point &p1, const Point &p2) {
     assert(p1.dimensions_ == p2.dimensions_);

@@ -19,7 +19,8 @@ public:
     static double distance(const Point &p1, const Point &p2);
     void add(const Point &point);
 
-    void update(int k) { cluster_ = k;}
+    // return true if cluster assignment changed.
+    bool update(int k);
 
     std::vector<double> data_;
     int dimensions_;
