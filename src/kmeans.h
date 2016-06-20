@@ -21,7 +21,7 @@ class KMeans {
 public:
 
     // K is the number of clusters we want.
-    KMeans(int k, int max_iterations=100);
+    KMeans(int k, int max_iterations = 100);
 
     // Copy all the given points.
     bool init(const std::vector<Point> &points);

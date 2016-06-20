@@ -10,16 +10,17 @@
 
 class Point {
 public:
-    Point() {};
+    Point() { };
 
     // Initialize the number of dimensions, optionally set all values to zero.
-    Point(int num_dimensions, bool init_zeros=true);
+    Point(int num_dimensions, bool init_zeros = true);
 
     Point(double x, double y, double z);
 
     // Initialize from a vector.
     Point(const std::vector<double> &vector);
-    ~Point() {};
+
+    ~Point() { };
 
     // Compute distance between two points.
     static double distance(const Point &p1, const Point &p2);

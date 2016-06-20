@@ -34,7 +34,7 @@ bool KMeans::run() {
         bool changed = assign();
         update_means();
 
-        if(!changed) {
+        if (!changed) {
             cout << "KMeans has converted after " << iteration
             << " iterations." << endl;
             return true;
@@ -72,7 +72,7 @@ bool KMeans::assign() {
         changed = changed || ret;
 
         cout << "Assigned point " << point << " to cluster: "
-             << new_cluster << endl;
+        << new_cluster << endl;
     }
     return changed;
 }
@@ -133,7 +133,7 @@ void KMeans::printMeans() {
 bool KMeans::loadPoints(const string &filepath, vector<Point> *points) {
 
     std::ifstream file_stream(filepath, std::ios_base::in);
-    if(!file_stream) {
+    if (!file_stream) {
         cout << "Could not open file " << filepath << endl;
         return false;
     }

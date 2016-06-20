@@ -55,7 +55,7 @@ void Point::add(const Point &point) {
 std::ostream &operator<<(std::ostream &target, const Point &point) {
     target << "[";
     for (const double &d : point.data_) {
-        target << d <<", ";
+        target << d << ", ";
     }
     target << "]";
     return target;
