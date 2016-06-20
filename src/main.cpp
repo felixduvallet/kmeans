@@ -6,14 +6,27 @@
 
 using namespace std;
 
-int main() {
-    Point p1(std::vector<double>{-2.0, 1.0});
-    Point p2(std::vector<double>{-1.0, 3.0});
-    Point p3(std::vector<double>{5.0, 2.0});
-    Point p4(std::vector<double>{6.0, 4.0});
-    Point p5(std::vector<double>{7.0, 2.0});
+void usage() {
+    cout << "Usage: ./kmeans <filename>" << endl;
+    cout << "   file should be space-separated points, one point per line."
+    << endl;
+    return;
+}
 
-    std::vector<Point> points{p1, p2, p3, p4, p5};
+int main(int argc, char *argv[]) {
+
+    if (argc < 2) {
+        usage();
+        return -1;
+    }
+    std::string fpath = argv[1];
+
+    std::vector<Point> points;
+
+    KMeans::loadPoints(fpath, &points);
+    for (const auto &p : points) {
+        cout << p << endl;
+    }
 
     KMeans kmeans(2);
     kmeans.init(points);
