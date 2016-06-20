@@ -3,7 +3,13 @@ project(kmeans)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES src/main.cpp src/point.cpp src/kmeans.cpp)
+include_directories(src)
+
+set(SOURCE_FILES
+    src/point.cpp
+    src/point.h
+    src/kmeans.cpp
+    src/kmeans.h)
 
 add_library(kmeans_lib ${SOURCE_FILES})
 

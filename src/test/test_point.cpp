@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 #include <cmath>
-#include "../point.h"
+#include "point.h"
 
 namespace {
 
