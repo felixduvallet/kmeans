@@ -10,17 +10,21 @@ set(TEST_NAME kmeans_tests)
 ########################################
 enable_testing()
 set(TEST_SRC_FILES
-        test_point.cpp)
+    test_point.cpp)
 
 add_executable(${TEST_NAME} ${TEST_SRC_FILES})
+
+include_directories(${PROJECT_SOURCE_DIR}/googletest
+        ${PROJECT_SOURCE_DIR}/googletest/include)
+
 target_link_libraries(${TEST_NAME}
-        kmeans_lib
-        gtest gtest_main pthread)
+    kmeans_lib
+    gtest gtest_main pthread)
 
 # Run "make test" to make sure all tests pass.
 add_test(
-  NAME ${TEST_NAME}
-  COMMAND ${EXECUTABLE_OUTPUT_PATH}/${TEST_NAME}
+    NAME ${TEST_NAME}
+    COMMAND ${EXECUTABLE_OUTPUT_PATH}/${TEST_NAME}
 )
 
 # Install unit test in build/test directory.

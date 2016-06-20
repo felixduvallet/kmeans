@@ -16,5 +16,6 @@ add_library(kmeans_lib ${SOURCE_FILES})
 add_executable(kmeans src/main.cpp)
 target_link_libraries(kmeans kmeans_lib)
 
-add_subdirectory(gtest)
+enable_testing()
+add_subdirectory(googletest)
 add_subdirectory(src/test)
