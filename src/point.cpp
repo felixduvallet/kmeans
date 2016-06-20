@@ -1,6 +1,4 @@
-//
-// Created by felixd on 6/18/16.
-//
+// Author: Felix Duvallet
 
 #include <cassert>
 #include <cmath>
@@ -9,7 +7,7 @@
 Point::Point(int num_dimensions, bool init_zeros)
         : cluster_(-1),
           dimensions_(num_dimensions) {
-    if (init_zeros)
+    if (init_zeros)  // default is true.
         for (int idx = 0; idx < dimensions_; ++idx)
             data_.push_back(0.0);
 }
@@ -59,10 +57,6 @@ std::ostream &operator<<(std::ostream &target, const Point &point) {
     for (const double &d : point.data_) {
         target << d <<", ";
     }
-    //target << "\b\b";
     target << "]";
     return target;
 }
-
-
-
