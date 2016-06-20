@@ -3,6 +3,9 @@
 #include <fstream>
 #include <iterator>
 #include <sstream>
+#include <random>
+#include <algorithm>
+#include <cassert>
 #include "kmeans.h"
 
 using namespace std;
@@ -14,14 +17,28 @@ KMeans::KMeans(int k, int max_iterations)
 }
 
 bool KMeans::init(const std::vector<Point> &points) {
+    // Store all points and create a vector that looks like [0, 1, 2, ... N]
+    std::vector<int> points_indices;
+    int point_num = 0;
     points_.clear();
 
     for (const auto &p : points) {
         points_.push_back(p);
+        points_indices.push_back(point_num);
+        point_num += 1;
     }
 
+    // Initialize the means randomly: shuffle the array of unique index
+    // integers. This prevents assigning the mean to the same point twice.
+    std::random_device rd;
+    std::mt19937 rng(rd());
+    std::shuffle(points_indices.begin(), points_indices.end(), rng);
+
+    // Sanity check
+    assert(points.size() >= num_clusters_);
+
     for (int idx = 0; idx < num_clusters_; ++idx) {
-        Point mean(points[idx]);
+        Point mean(points[points_indices[idx]]);
         means_.push_back(mean);
     }
 
