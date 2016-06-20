@@ -1,5 +1,8 @@
 // Author: Felix Duvallet
 
+#include <fstream>
+#include <iterator>
+#include <sstream>
 #include "kmeans.h"
 
 using namespace std;
@@ -126,4 +129,27 @@ void KMeans::printMeans() {
     }
 }
 
+// static
+bool KMeans::loadPoints(const string &filepath, vector<Point> *points) {
 
+    std::ifstream file_stream(filepath, std::ios_base::in);
+    if(!file_stream) {
+        cout << "Could not open file " << filepath << endl;
+        return false;
+    }
+
+    std::string line;
+    // Split up each line of the file.
+    while (getline(file_stream, line, '\n')) {
+        std::stringstream line_stream(line);
+
+        // Get a vector of numbers directly from a stream iterator.
+        std::istream_iterator<double> start(line_stream), end;
+        std::vector<double> numbers(start, end);
+
+        Point p(numbers);
+        points->push_back(p);
+    }
+
+    return true;
+}

@@ -10,7 +10,9 @@ set(TEST_NAME kmeans_tests)
 ########################################
 enable_testing()
 set(TEST_SRC_FILES
-    test_point.cpp)
+    test_point.cpp
+    test_data_loading.cpp
+    test_main.cpp)
 
 add_executable(${TEST_NAME} ${TEST_SRC_FILES})
 
@@ -26,6 +28,7 @@ add_test(
     NAME ${TEST_NAME}
     COMMAND ${EXECUTABLE_OUTPUT_PATH}/${TEST_NAME}
 )
+configure_file(test_data_3.txt test_data_3.txt COPYONLY)
 
 # Install unit test in build/test directory.
 install(TARGETS ${TEST_NAME} DESTINATION "${CMAKE_INSTALL_PREFIX}/test")

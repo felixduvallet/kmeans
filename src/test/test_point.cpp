@@ -1,9 +1,6 @@
-//
-// Created by felixd on 6/19/16.
-//
+// Author: Felix Duvallet
 
 #include <gtest/gtest.h>
-#include <cmath>
 #include "point.h"
 
 namespace {
@@ -65,10 +62,4 @@ namespace {
     }
 
 }  // /namespace
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-
 

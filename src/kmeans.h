@@ -29,6 +29,10 @@ public:
     // Run until convergence.
     bool run();
 
+    // Load the points from file and into the vector.
+    static bool loadPoints(const std::string &filepath,
+                           std::vector<Point> *points);
+
     void printMeans();
 
 protected:
