@@ -1,5 +1,6 @@
 # kmeans
 C++ implementation of K-Means.
+[![Build Status](https://travis-ci.org/felixduvallet/kmeans.svg?branch=master)](https://travis-ci.org/felixduvallet/kmeans)
 
 Usage:
 
