@@ -37,6 +37,9 @@ class KMeans {
 
   void printMeans();
 
+  // Write means to file, in the same format as the input file.
+  void writeMeans(const std::string &filepath);
+
  protected:
   // Assign each point to the nearest cluster. Returns true if any point's
   // cluster assignment has changed, so we can detect convergence.

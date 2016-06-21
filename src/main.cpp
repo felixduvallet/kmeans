@@ -37,6 +37,8 @@ int main(int argc, char *argv[]) {
   kmeans.run();
   kmeans.printMeans();
 
+  kmeans.writeMeans("means.txt");
+
   cout << "Finished." << endl;
   return 0;
 }

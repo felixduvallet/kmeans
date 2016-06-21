@@ -55,8 +55,8 @@ bool KMeans::run() {
     update_means();
 
     if (!changed) {
-      cout << "KMeans has converted after " << iteration
-      << " iterations." << endl;
+      cout << "KMeans has converged after " << iteration <<  " iterations."
+           << endl;
       return true;
     }
   }
@@ -171,3 +171,21 @@ bool KMeans::loadPoints(const string &filepath, vector<Point> *points) {
 
   return true;
 }
+
+void KMeans::writeMeans(const std::string &filepath) {
+  std::ofstream file_stream(filepath, std::ios_base::out);
+  if (!file_stream) {
+    cout << "Could not open file " << filepath << endl;
+    return;
+  }
+
+  for (auto &mean : means_) {
+    std::ostream_iterator<double> itr(file_stream, " ");
+    std::copy(mean.data_.begin(), mean.data_.end(), itr);
+    file_stream << endl;
+  }
+  return;
+
+}
+
+
