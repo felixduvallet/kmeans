@@ -21,7 +21,8 @@
 
 class KMeans {
  public:
-  // K is the number of clusters we want.
+  // K is the number of clusters we want. Max iterations is just to prevent
+  // running forever.
   KMeans(int k, int max_iterations = 100);
 
   // Copy all the given points.
@@ -60,6 +61,15 @@ class KMeans {
   int max_iterations_;
   std::vector<Point> means_;
   std::vector<Point> points_;
+
+ public:
+  const std::vector<Point> &getPoints() const {
+    return points_;
+  }
+
+  const std::vector<Point> &getMeans() const {
+    return means_;
+  }
 };
 
 #endif  // __KMEANS_KMEANS_H__
