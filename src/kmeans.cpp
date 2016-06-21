@@ -179,6 +179,7 @@ void KMeans::writeMeans(const std::string &filepath) {
     return;
   }
 
+  // Copy all data to file_stream, then append a newline.
   for (auto &mean : means_) {
     std::ostream_iterator<double> itr(file_stream, " ");
     std::copy(mean.data_.begin(), mean.data_.end(), itr);
@@ -187,5 +188,3 @@ void KMeans::writeMeans(const std::string &filepath) {
   return;
 
 }
-
-
