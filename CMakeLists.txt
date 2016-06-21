@@ -16,6 +16,10 @@ add_library(kmeans_lib ${SOURCE_FILES})
 add_executable(kmeans src/main.cpp)
 target_link_libraries(kmeans kmeans_lib)
 
+configure_file(src/sample_data/data_200_2.txt data_200_2.txt COPYONLY)
+configure_file(src/sample_data/data_400_50.txt data_400_50.txt COPYONLY)
+
+
 enable_testing()
 add_subdirectory(googletest)
 add_subdirectory(src/test)

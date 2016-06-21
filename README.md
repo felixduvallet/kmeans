@@ -19,3 +19,18 @@ example:
     cd build
     make
     make test
+
+## Run on some sample data
+
+There are some traces of sample data in the src/sample_data folder.
+data_N_D.txt contains N D-dimensional points.
+
+For example, you can run kmeans on 200 2-dimensional points.
+
+    cd build
+    ./kmeans data_200_2.txt 2
+
+This produces a file `means.txt` that looks *something* like:
+
+    3.96207 -1.92886
+    -2.01688 -2.98501
