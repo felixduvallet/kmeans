@@ -14,12 +14,13 @@
 #define __KMEANS_KMEANS_H__
 
 #include <map>
+#include <string>
+#include <vector>
+
 #include "point.h"
 
 class KMeans {
-
-public:
-
+ public:
   // K is the number of clusters we want.
   KMeans(int k, int max_iterations = 100);
 
@@ -35,8 +36,7 @@ public:
 
   void printMeans();
 
-protected:
-
+ protected:
   // Assign each point to the nearest cluster. Returns true if any point's
   // cluster assignment has changed, so we can detect convergence.
   bool assign();

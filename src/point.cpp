@@ -7,9 +7,11 @@
 Point::Point(int num_dimensions, bool init_zeros)
   : cluster_(-1),
     dimensions_(num_dimensions) {
-  if (init_zeros)  // default is true.
-    for (int idx = 0; idx < dimensions_; ++idx)
+  if (init_zeros) {  // default is true.
+    for (int idx = 0; idx < dimensions_; ++idx) {
       data_.push_back(0.0);
+    }
+  }
 }
 
 Point::Point(double x, double y, double z)
