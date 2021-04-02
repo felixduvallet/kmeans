@@ -1,6 +1,7 @@
 // Author: Felix Duvallet
 
 #include <gtest/gtest.h>
+#include <cmath>
 #include "point.h"
 
 namespace {
